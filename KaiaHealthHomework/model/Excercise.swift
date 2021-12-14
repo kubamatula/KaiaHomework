@@ -10,6 +10,5 @@ import Foundation
 struct Excercise: Hashable, Codable {
     let id: Int
     let name: String
-    let coverImageURL: URL
-    let videoURL: URL
+    let coverImageUrl: URL
 }

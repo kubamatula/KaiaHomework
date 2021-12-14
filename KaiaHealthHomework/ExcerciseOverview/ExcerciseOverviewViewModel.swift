@@ -11,30 +11,41 @@ import Combine
 protocol ExcerciseOverviewViewModel {
     var excercises: [ExcerciseViewModel] { get }
     func updateFavoriteStatus(for: Excercise, to: Bool)
+    func loadExcercises(completion: @escaping () -> Void)
 }
 
 class MockExcerciseOverviewViewModel: ExcerciseOverviewViewModel {
     var onExcercisesUpdate: (() -> Void)?
+    private let excerciseRepository: ExcerciseRepository
+    private let favoriteExcerciseStore: FavoriteExcerciseStore
 
-    lazy var excercises = (0..<20).map { index in
-        Excercise(
-            id: index,
-            name: "Excercise - \(index)",
-            coverImageURL: URL(string: "https://d32oopmphic0po.cloudfront.net/v1/images/body/en-US/body-exercise-4-14.png")!,
-            videoURL: URL(string: "https://d32oopmphic0po.cloudfront.net/v1/images/body/en-US/body-exercise-4-14.png")!
-        )
-    }.map { excercise in
-        ExcerciseViewModel(
-            excercise: excercise,
-            isFavorite: false) { [unowned self] newValue in
-                self.updateFavoriteStatus(for: excercise, to: newValue)
-                onExcercisesUpdate?()
-            }
+    init(
+        excerciseRepository: ExcerciseRepository = RemoteExcerciseRepository(),
+        favoriteExcerciseStore: FavoriteExcerciseStore = UserDefaultsFavoriteExcerciseStore()
+    ) {
+        self.excerciseRepository = excerciseRepository
+        self.favoriteExcerciseStore = favoriteExcerciseStore
     }
 
-    func updateFavoriteStatus(for excercise: Excercise, to isFavorite: Bool) {
-        guard let excerciseIndex = excercises.firstIndex(where: { $0.excercise == excercise }) else { return }
-        excercises[excerciseIndex] = ExcerciseViewModel(
+    private(set) var excercises: [ExcerciseViewModel] = []
+
+    func loadExcercises(completion: @escaping () -> Void) {
+        Task {
+            do {
+                let excercises = try await excerciseRepository.fetchExcercises()
+                let favorites = favoriteExcerciseStore.favoriteExcerciseIds
+                self.excercises = excercises.map {
+                    makeExcerciseViewModel(excercise: $0, isFavorite: favorites.contains($0.id))
+                }
+                completion()
+            } catch {
+                print("Problem loading excercises: \(error)")
+            }
+        }
+    }
+
+    private func makeExcerciseViewModel(excercise: Excercise, isFavorite: Bool) -> ExcerciseViewModel {
+        ExcerciseViewModel(
             excercise: excercise,
             isFavorite: isFavorite,
             onFavoriteChange: { [unowned self] newValue in
@@ -42,5 +53,12 @@ class MockExcerciseOverviewViewModel: ExcerciseOverviewViewModel {
                 onExcercisesUpdate?()
             }
         )
+    }
+
+    func updateFavoriteStatus(for excercise: Excercise, to isFavorite: Bool) {
+        guard let excerciseIndex = excercises.firstIndex(where: { $0.excercise == excercise }) else { return }
+        excercises[excerciseIndex] = makeExcerciseViewModel(excercise: excercise, isFavorite: isFavorite)
+        let favoriteExcerciseIds = excercises.filter(\.isFavorite).map(\.excercise.id)
+        favoriteExcerciseStore.saveFavoriteExcerciseIds(excerciseIds: favoriteExcerciseIds)
     }
 }

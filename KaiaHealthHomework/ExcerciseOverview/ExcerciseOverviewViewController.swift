@@ -16,6 +16,11 @@ class ExcerciseOverviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        viewModel.loadExcercises { [weak self] in
+            DispatchQueue.main.async {
+                self?.updateTableView()
+            }
+        }
     }
 
     init(viewModel: ExcerciseOverviewViewModel = MockExcerciseOverviewViewModel()) {
