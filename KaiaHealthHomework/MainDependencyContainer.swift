@@ -9,7 +9,7 @@ import UIKit
 
 public class MainDependencyContainer {
 
-    let excerciseOverviewViewController: ViewController = ViewController()
+    let excerciseOverviewViewController: ExcerciseOverviewViewController = ExcerciseOverviewViewController()
 
     init() {}
 }
