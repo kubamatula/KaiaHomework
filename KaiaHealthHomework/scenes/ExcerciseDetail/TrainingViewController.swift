@@ -8,8 +8,9 @@
 import UIKit
 
 class TrainingViewController: UIViewController {
-
+    private static let timeForExcercise: TimeInterval = 5
     private let viewModel: TrainingViewModel
+    private var timer: Timer!
 
     let excerciseImage: UIImageView = {
         let imgView = UIImageView()
@@ -39,6 +40,7 @@ class TrainingViewController: UIViewController {
     init(viewModel: TrainingViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.navigationItem.hidesBackButton = true
     }
 
     required init?(coder: NSCoder) {
@@ -48,6 +50,26 @@ class TrainingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupCurrentExcerciseOrFinish()
+        setupTimer()
+    }
+
+    private func setupTimer() {
+        timer = Timer.scheduledTimer(
+            timeInterval: Self.timeForExcercise,
+            target: self,
+            selector: #selector(showNextExcercise),
+            userInfo: nil,
+            repeats: true
+        )
+    }
+
+    @objc private func showNextExcercise() {
+        viewModel.goToNextExcercise()
         setupCurrentExcerciseOrFinish()
     }
 
@@ -90,6 +112,7 @@ class TrainingViewController: UIViewController {
     }
 
     @objc private func cancelTraining() {
+        timer.invalidate()
         navigationController?.popViewController(animated: true)
     }
 
