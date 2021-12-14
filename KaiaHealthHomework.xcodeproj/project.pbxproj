@@ -19,6 +19,7 @@
 		BB56E68127666AB80043DC06 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E68027666AB80043DC06 /* UITableView+Reusable.swift */; };
 		BB56E68427666AD30043DC06 /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E68327666AD30043DC06 /* UIImageView+URL.swift */; };
 		BB56E68627666B3E0043DC06 /* Margin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E68527666B3E0043DC06 /* Margin.swift */; };
+		BB56E6892766AB510043DC06 /* ExcerciseOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E6882766AB510043DC06 /* ExcerciseOverviewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		BB56E68027666AB80043DC06 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
 		BB56E68327666AD30043DC06 /* UIImageView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
 		BB56E68527666B3E0043DC06 /* Margin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margin.swift; sourceTree = "<group>"; };
+		BB56E6882766AB510043DC06 /* ExcerciseOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseOverviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				BB56E64C276657440043DC06 /* ExcerciseOverviewViewController.swift */,
 				BB56E67B27665E460043DC06 /* ExcerciseOverviewViewModel.swift */,
+				BB56E6882766AB510043DC06 /* ExcerciseOverviewCell.swift */,
 			);
 			path = ExcerciseOverview;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			files = (
 				BB56E64D276657440043DC06 /* ExcerciseOverviewViewController.swift in Sources */,
 				BB56E67F2766624B0043DC06 /* Excercise.swift in Sources */,
+				BB56E6892766AB510043DC06 /* ExcerciseOverviewCell.swift in Sources */,
 				BB56E68627666B3E0043DC06 /* Margin.swift in Sources */,
 				BB56E68427666AD30043DC06 /* UIImageView+URL.swift in Sources */,
 				BB56E67C27665E460043DC06 /* ExcerciseOverviewViewModel.swift in Sources */,
