@@ -34,6 +34,7 @@ class TrainingViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Cancel training", for: .normal)
         button.addTarget(self, action: #selector(cancelTraining), for: .touchUpInside)
+        button.backgroundColor = .systemYellow
         return button
     }()
 
