@@ -15,13 +15,9 @@ class RemoteExcerciseRepository: ExcerciseRepository {
     private let session: URLSession
     private let decoder: JSONDecoder
 
-    init(
-        session: URLSession = URLSession(configuration: .default),
-        decoder: JSONDecoder = JSONDecoder()
-    ) {
+    init(session: URLSession, decoder: JSONDecoder) {
         self.session = session
         self.decoder = decoder
-        self.decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
 
     func fetchExcercises() async throws -> [Excercise] {

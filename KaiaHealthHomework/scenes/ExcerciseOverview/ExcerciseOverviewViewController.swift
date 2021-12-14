@@ -10,6 +10,7 @@ import UIKit
 class ExcerciseOverviewViewController: UIViewController {
 
     private let viewModel: ExcerciseOverviewViewModel
+    private let trainingViewControllerFactory: ([ExcerciseViewModel]) -> TrainingViewController
     private var tableView: UITableView!
     private lazy var dataSource = makeDataSource()
 
@@ -24,10 +25,14 @@ class ExcerciseOverviewViewController: UIViewController {
         }
     }
 
-    init(viewModel: ExcerciseOverviewViewModel = MockExcerciseOverviewViewModel()) {
+    init(
+        viewModel: ExcerciseOverviewViewModel,
+        trainingViewControllerFactory: @escaping ([ExcerciseViewModel]) -> TrainingViewController
+    ) {
         self.viewModel = viewModel
+        self.trainingViewControllerFactory = trainingViewControllerFactory
         super.init(nibName: nil, bundle: nil)
-        (self.viewModel as! MockExcerciseOverviewViewModel).onExcercisesUpdate = { [unowned self] in
+        (self.viewModel as! ExcerciseOverviewViewModelImpl).onExcercisesUpdate = { [unowned self] in
             self.updateTableView()
         }
     }
@@ -67,7 +72,7 @@ class ExcerciseOverviewViewController: UIViewController {
     }
 
     @objc private func startTraining() {
-        let trainingViewController = TrainingViewController()
+        let trainingViewController = trainingViewControllerFactory(viewModel.excercises)
         self.navigationController?.pushViewController(trainingViewController, animated: true)
     }
 }

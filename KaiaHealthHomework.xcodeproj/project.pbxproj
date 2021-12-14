@@ -23,6 +23,7 @@
 		BB56E68C2767ED5D0043DC06 /* FavoriteExcerciseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E68B2767ED5D0043DC06 /* FavoriteExcerciseStore.swift */; };
 		BB56E68E2767F4660043DC06 /* FavoriteExcerciseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E68D2767F4660043DC06 /* FavoriteExcerciseRepository.swift */; };
 		BBB7196C276803D000B2015D /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB7196B276803D000B2015D /* TrainingViewController.swift */; };
+		BBB7196E276806DE00B2015D /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB7196D276806DE00B2015D /* TrainingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		BB56E68B2767ED5D0043DC06 /* FavoriteExcerciseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteExcerciseStore.swift; sourceTree = "<group>"; };
 		BB56E68D2767F4660043DC06 /* FavoriteExcerciseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteExcerciseRepository.swift; sourceTree = "<group>"; };
 		BBB7196B276803D000B2015D /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		BBB7196D276806DE00B2015D /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB7196B276803D000B2015D /* TrainingViewController.swift */,
+				BBB7196D276806DE00B2015D /* TrainingViewModel.swift */,
 			);
 			path = ExcerciseDetail;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				BB56E67C27665E460043DC06 /* ExcerciseOverviewViewModel.swift in Sources */,
 				BB56E649276657440043DC06 /* AppDelegate.swift in Sources */,
 				BBB7196C276803D000B2015D /* TrainingViewController.swift in Sources */,
+				BBB7196E276806DE00B2015D /* TrainingViewModel.swift in Sources */,
 				BB56E64B276657440043DC06 /* SceneDelegate.swift in Sources */,
 				BB56E68C2767ED5D0043DC06 /* FavoriteExcerciseStore.swift in Sources */,
 				BB56E68E2767F4660043DC06 /* FavoriteExcerciseRepository.swift in Sources */,

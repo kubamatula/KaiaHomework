@@ -17,7 +17,7 @@ struct ExcerciseViewModel: Hashable {
     }
 
     let excercise: Excercise
-    let isFavorite: Bool
+    var isFavorite: Bool
     let onFavoriteChange: (Bool) -> Void
 }
 
