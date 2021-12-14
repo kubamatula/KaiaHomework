@@ -10,10 +10,10 @@
 		BB56E649276657440043DC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E648276657440043DC06 /* AppDelegate.swift */; };
 		BB56E64B276657440043DC06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E64A276657440043DC06 /* SceneDelegate.swift */; };
 		BB56E64D276657440043DC06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E64C276657440043DC06 /* ViewController.swift */; };
-		BB56E650276657440043DC06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB56E64E276657440043DC06 /* Main.storyboard */; };
 		BB56E652276657460043DC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB56E651276657460043DC06 /* Assets.xcassets */; };
 		BB56E655276657460043DC06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB56E653276657460043DC06 /* LaunchScreen.storyboard */; };
 		BB56E660276657470043DC06 /* KaiaHealthHomeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E65F276657470043DC06 /* KaiaHealthHomeworkTests.swift */; };
+		BB56E67927665A9C0043DC06 /* MainDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E67827665A9C0043DC06 /* MainDependencyContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,12 +31,12 @@
 		BB56E648276657440043DC06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB56E64A276657440043DC06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BB56E64C276657440043DC06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BB56E64F276657440043DC06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB56E651276657460043DC06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB56E654276657460043DC06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB56E656276657460043DC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB56E65B276657470043DC06 /* KaiaHealthHomeworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaiaHealthHomeworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB56E65F276657470043DC06 /* KaiaHealthHomeworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaiaHealthHomeworkTests.swift; sourceTree = "<group>"; };
+		BB56E67827665A9C0043DC06 /* MainDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDependencyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +80,8 @@
 			children = (
 				BB56E648276657440043DC06 /* AppDelegate.swift */,
 				BB56E64A276657440043DC06 /* SceneDelegate.swift */,
+				BB56E67827665A9C0043DC06 /* MainDependencyContainer.swift */,
 				BB56E64C276657440043DC06 /* ViewController.swift */,
-				BB56E64E276657440043DC06 /* Main.storyboard */,
 				BB56E651276657460043DC06 /* Assets.xcassets */,
 				BB56E653276657460043DC06 /* LaunchScreen.storyboard */,
 				BB56E656276657460043DC06 /* Info.plist */,
@@ -180,7 +180,6 @@
 			files = (
 				BB56E655276657460043DC06 /* LaunchScreen.storyboard in Resources */,
 				BB56E652276657460043DC06 /* Assets.xcassets in Resources */,
-				BB56E650276657440043DC06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +200,7 @@
 				BB56E64D276657440043DC06 /* ViewController.swift in Sources */,
 				BB56E649276657440043DC06 /* AppDelegate.swift in Sources */,
 				BB56E64B276657440043DC06 /* SceneDelegate.swift in Sources */,
+				BB56E67927665A9C0043DC06 /* MainDependencyContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,14 +223,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BB56E64E276657440043DC06 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB56E64F276657440043DC06 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BB56E653276657460043DC06 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -370,7 +362,6 @@
 				INFOPLIST_FILE = KaiaHealthHomework/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -399,7 +390,6 @@
 				INFOPLIST_FILE = KaiaHealthHomework/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
