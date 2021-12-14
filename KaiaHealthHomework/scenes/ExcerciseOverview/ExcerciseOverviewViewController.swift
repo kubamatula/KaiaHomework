@@ -16,6 +16,7 @@ class ExcerciseOverviewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         setupTableView()
         setupStartButton()
         viewModel.loadExcercises { [weak self] in
@@ -42,12 +43,19 @@ class ExcerciseOverviewViewController: UIViewController {
     }
 
     private func setupTableView() {
-        tableView = UITableView(frame: view.frame.inset(by: view.safeAreaInsets), style: .plain)
+        tableView = UITableView(frame: .zero, style: .plain)
         tableView.registerReusableCell(ExcerciseOverviewCell.self)
         tableView.dataSource = dataSource
         tableView.estimatedRowHeight = 50
         tableView.allowsSelection = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+        ])
         updateTableView()
     }
 

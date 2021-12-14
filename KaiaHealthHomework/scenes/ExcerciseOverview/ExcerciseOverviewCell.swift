@@ -7,20 +7,6 @@
 
 import UIKit
 
-struct ExcerciseViewModel: Hashable {
-    static func == (lhs: ExcerciseViewModel, rhs: ExcerciseViewModel) -> Bool {
-        lhs.excercise == rhs.excercise && lhs.isFavorite == rhs.isFavorite
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(excercise)
-    }
-
-    let excercise: Excercise
-    var isFavorite: Bool
-    let onFavoriteChange: (Bool) -> Void
-}
-
 class ExcerciseOverviewCell: UITableViewCell, Reusable {
     private static let filledStar = UIImage(systemName: "star.fill")
     private static let star = UIImage(systemName: "star")
@@ -58,7 +44,7 @@ class ExcerciseOverviewCell: UITableViewCell, Reusable {
 
     func configureCell(viewModel: ExcerciseViewModel) {
         self.viewModel = viewModel
-        excerciseImage.load(url: viewModel.excercise.coverImageURL)
+        excerciseImage.load(url: viewModel.excercise.coverImageUrl)
         nameLabel.text = viewModel.excercise.name
         favoriteButton.setImage(viewModel.isFavorite ? Self.filledStar : Self.star, for: .normal)
         favoriteButton.addTarget(self, action: #selector(toggleFavorite), for: .touchUpInside)

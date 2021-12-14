@@ -24,11 +24,13 @@ class TrainingViewController: UIViewController {
         button.contentMode = .center
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .systemYellow
+        button.addTarget(self, action: #selector(tapFavorite), for: .touchUpInside)
         return button
     }()
 
     private let cancelButton: UIButton = {
         let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Cancel training", for: .normal)
         button.addTarget(self, action: #selector(cancelTraining), for: .touchUpInside)
         return button
@@ -46,9 +48,27 @@ class TrainingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupCurrentExcerciseOrFinish()
+    }
+
+    private func setupCurrentExcerciseOrFinish() {
+        guard let excercise = viewModel.excercise else {
+            cancelTraining()
+            return
+        }
+        excerciseImage.load(url: excercise.excercise.coverImageUrl)
+        refreshFavoriteButton()
+    }
+
+    private func refreshFavoriteButton() {
+        guard let excercise = viewModel.excercise else {
+            return
+        }
+        favoriteButton.setImage(FavoriteImage.image(excercise.isFavorite), for: .normal)
     }
 
     private func setupView() {
+        view.backgroundColor = .systemBackground
         view.addSubview(excerciseImage)
         view.addSubview(favoriteButton)
         view.addSubview(cancelButton)
@@ -60,16 +80,21 @@ class TrainingViewController: UIViewController {
             excerciseImage.rightAnchor.constraint(equalTo: view.rightAnchor),
         ])
         NSLayoutConstraint.activate([
-            cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Margin.standard),
+            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margin.standard),
             cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Margin.standard),
         ])
         NSLayoutConstraint.activate([
-            cancelButton.trailingAnchor.constraint(equalTo: cancelButton.trailingAnchor),
-            cancelButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margin.standard),
+            favoriteButton.trailingAnchor.constraint(equalTo: cancelButton.trailingAnchor),
+            favoriteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margin.standard),
         ])
     }
 
     @objc private func cancelTraining() {
         navigationController?.popViewController(animated: true)
+    }
+
+    @objc private func tapFavorite() {
+        viewModel.toggleFavoriteStatus()
+        refreshFavoriteButton()
     }
 }

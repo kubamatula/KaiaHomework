@@ -24,6 +24,8 @@
 		BB56E68E2767F4660043DC06 /* FavoriteExcerciseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E68D2767F4660043DC06 /* FavoriteExcerciseRepository.swift */; };
 		BBB7196C276803D000B2015D /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB7196B276803D000B2015D /* TrainingViewController.swift */; };
 		BBB7196E276806DE00B2015D /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB7196D276806DE00B2015D /* TrainingViewModel.swift */; };
+		BBB719702768939A00B2015D /* FavoriteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB7196F2768939A00B2015D /* FavoriteImage.swift */; };
+		BBB71972276893AE00B2015D /* ExcerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB71971276893AE00B2015D /* ExcerciseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		BB56E68D2767F4660043DC06 /* FavoriteExcerciseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteExcerciseRepository.swift; sourceTree = "<group>"; };
 		BBB7196B276803D000B2015D /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		BBB7196D276806DE00B2015D /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
+		BBB7196F2768939A00B2015D /* FavoriteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteImage.swift; sourceTree = "<group>"; };
+		BBB71971276893AE00B2015D /* ExcerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				BB56E68027666AB80043DC06 /* UITableView+Reusable.swift */,
+				BBB7196F2768939A00B2015D /* FavoriteImage.swift */,
 				BB56E68527666B3E0043DC06 /* Margin.swift */,
 				BB56E68327666AD30043DC06 /* UIImageView+URL.swift */,
 			);
@@ -162,6 +167,7 @@
 			children = (
 				BBB7196A2768029600B2015D /* ExcerciseDetail */,
 				BB56E67A27665E0F0043DC06 /* ExcerciseOverview */,
+				BBB71971276893AE00B2015D /* ExcerciseViewModel.swift */,
 			);
 			path = scenes;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB56E64D276657440043DC06 /* ExcerciseOverviewViewController.swift in Sources */,
+				BBB719702768939A00B2015D /* FavoriteImage.swift in Sources */,
 				BB56E67F2766624B0043DC06 /* Excercise.swift in Sources */,
 				BB56E6892766AB510043DC06 /* ExcerciseOverviewCell.swift in Sources */,
 				BB56E68627666B3E0043DC06 /* Margin.swift in Sources */,
@@ -284,6 +291,7 @@
 				BB56E649276657440043DC06 /* AppDelegate.swift in Sources */,
 				BBB7196C276803D000B2015D /* TrainingViewController.swift in Sources */,
 				BBB7196E276806DE00B2015D /* TrainingViewModel.swift in Sources */,
+				BBB71972276893AE00B2015D /* ExcerciseViewModel.swift in Sources */,
 				BB56E64B276657440043DC06 /* SceneDelegate.swift in Sources */,
 				BB56E68C2767ED5D0043DC06 /* FavoriteExcerciseStore.swift in Sources */,
 				BB56E68E2767F4660043DC06 /* FavoriteExcerciseRepository.swift in Sources */,

@@ -6,8 +6,9 @@
 //
 
 protocol TrainingViewModel {
-    var excercises: [ExcerciseViewModel] { get }
-    func updateFavoriteStatus(for: Excercise, to: Bool)
+    var excercise: ExcerciseViewModel? { get }
+    func goToNextExcercise()
+    func toggleFavoriteStatus()
 }
 
 protocol FavoriteExcerciseChangedResponder: AnyObject {
@@ -17,6 +18,12 @@ protocol FavoriteExcerciseChangedResponder: AnyObject {
 class TrainingViewModelImpl: TrainingViewModel {
     private weak var favoriteExcerciseChangedResponder: FavoriteExcerciseChangedResponder?
     private(set) var excercises: [ExcerciseViewModel]
+    private var currentExcerciseIndex = 0
+
+    var excercise: ExcerciseViewModel? {
+        guard currentExcerciseIndex < excercises.count else { return nil }
+        return excercises[currentExcerciseIndex]
+    }
 
     init(
         excercises: [ExcerciseViewModel],
@@ -26,9 +33,16 @@ class TrainingViewModelImpl: TrainingViewModel {
         self.favoriteExcerciseChangedResponder = favoriteExcerciseChangedResponder
     }
 
-    func updateFavoriteStatus(for excercise: Excercise, to isFavorite: Bool) {
-        guard let excerciseIndex = excercises.firstIndex(where: { $0.excercise == excercise }) else { return }
-        excercises[excerciseIndex].isFavorite = isFavorite
-        favoriteExcerciseChangedResponder?.favoriteExcerciseDidChange(excercise, to: isFavorite)
+    func goToNextExcercise() {
+        currentExcerciseIndex += 1
+    }
+
+    func toggleFavoriteStatus() {
+        guard let currentExcercise = excercise else { return }
+        excercises[currentExcerciseIndex].isFavorite.toggle()
+        favoriteExcerciseChangedResponder?.favoriteExcerciseDidChange(
+            currentExcercise.excercise,
+            to: excercises[currentExcerciseIndex].isFavorite
+        )
     }
 }
