@@ -22,6 +22,7 @@
 		BB56E6892766AB510043DC06 /* ExcerciseOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E6882766AB510043DC06 /* ExcerciseOverviewCell.swift */; };
 		BB56E68C2767ED5D0043DC06 /* FavoriteExcerciseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E68B2767ED5D0043DC06 /* FavoriteExcerciseStore.swift */; };
 		BB56E68E2767F4660043DC06 /* FavoriteExcerciseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56E68D2767F4660043DC06 /* FavoriteExcerciseRepository.swift */; };
+		BBB7196C276803D000B2015D /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB7196B276803D000B2015D /* TrainingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		BB56E6882766AB510043DC06 /* ExcerciseOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseOverviewCell.swift; sourceTree = "<group>"; };
 		BB56E68B2767ED5D0043DC06 /* FavoriteExcerciseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteExcerciseStore.swift; sourceTree = "<group>"; };
 		BB56E68D2767F4660043DC06 /* FavoriteExcerciseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteExcerciseRepository.swift; sourceTree = "<group>"; };
+		BBB7196B276803D000B2015D /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +102,7 @@
 				BB56E68227666ABB0043DC06 /* helpers */,
 				BB56E67D2766623C0043DC06 /* model */,
 				BB56E68A2767ED100043DC06 /* service */,
-				BB56E67A27665E0F0043DC06 /* ExcerciseOverview */,
+				BBB719682768026300B2015D /* scenes */,
 				BB56E651276657460043DC06 /* Assets.xcassets */,
 				BB56E653276657460043DC06 /* LaunchScreen.storyboard */,
 				BB56E656276657460043DC06 /* Info.plist */,
@@ -151,6 +153,23 @@
 				BB56E68D2767F4660043DC06 /* FavoriteExcerciseRepository.swift */,
 			);
 			path = service;
+			sourceTree = "<group>";
+		};
+		BBB719682768026300B2015D /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BBB7196A2768029600B2015D /* ExcerciseDetail */,
+				BB56E67A27665E0F0043DC06 /* ExcerciseOverview */,
+			);
+			path = scenes;
+			sourceTree = "<group>";
+		};
+		BBB7196A2768029600B2015D /* ExcerciseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BBB7196B276803D000B2015D /* TrainingViewController.swift */,
+			);
+			path = ExcerciseDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +279,7 @@
 				BB56E68427666AD30043DC06 /* UIImageView+URL.swift in Sources */,
 				BB56E67C27665E460043DC06 /* ExcerciseOverviewViewModel.swift in Sources */,
 				BB56E649276657440043DC06 /* AppDelegate.swift in Sources */,
+				BBB7196C276803D000B2015D /* TrainingViewController.swift in Sources */,
 				BB56E64B276657440043DC06 /* SceneDelegate.swift in Sources */,
 				BB56E68C2767ED5D0043DC06 /* FavoriteExcerciseStore.swift in Sources */,
 				BB56E68E2767F4660043DC06 /* FavoriteExcerciseRepository.swift in Sources */,

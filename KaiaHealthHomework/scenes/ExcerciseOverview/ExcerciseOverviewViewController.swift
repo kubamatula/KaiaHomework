@@ -16,6 +16,7 @@ class ExcerciseOverviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupStartButton()
         viewModel.loadExcercises { [weak self] in
             DispatchQueue.main.async {
                 self?.updateTableView()
@@ -45,12 +46,29 @@ class ExcerciseOverviewViewController: UIViewController {
         updateTableView()
     }
 
+    private func setupStartButton() {
+        let startButton = UIButton(type: .system)
+        startButton.setTitle("Start training", for: .normal)
+        startButton.addTarget(self, action: #selector(startTraining), for: .touchDown)
+        startButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(startButton)
+        NSLayoutConstraint.activate([
+            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margin.standard),
+        ])
+    }
+
     private func updateTableView(animated: Bool = false) {
         var snapshot = NSDiffableDataSourceSnapshot<Int, ExcerciseViewModel>()
         snapshot.appendSections([0])
         snapshot.appendItems(viewModel.excercises, toSection: 0)
 
         dataSource.apply(snapshot, animatingDifferences: animated)
+    }
+
+    @objc private func startTraining() {
+        let trainingViewController = TrainingViewController()
+        self.navigationController?.pushViewController(trainingViewController, animated: true)
     }
 }
 
